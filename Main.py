@@ -1,5 +1,6 @@
 import Encrypt_Decrypt
 import Password_Generation as generation
+import Storage
 
 
 def main():
@@ -13,6 +14,7 @@ def main():
         print("2. Retrieve a password")
         print("3. Generate a random password")
         print("4. Exit")
+        print("5. Test")
 
         choice = input("Select an option: ")
 
@@ -20,13 +22,13 @@ def main():
             service = input("Enter service name: ")
             username = input("Enter username: ")
             password = input("Enter password: ")
-            #store_password(service, username, password, master_password)
+            Storage.store_password(service, username, password, master_password)
             print("Password stored successfully!")
 
         elif choice == "2":
             service = input("Enter service name: ")
             try:
-                username, password = 500,200#retrieve_password(service, master_password)
+                username, password = Storage.retrieve_password(service, master_password)
                 print(f"Username: {username}")
                 print(f"Password: {password}")
             except ValueError as e:
@@ -40,6 +42,8 @@ def main():
         elif choice == "4":
             print("Exiting...")
             break
+        elif choice == "5":
+            Encrypt_Decrypt.test_encryption_decryption()
 
         else:
             print("Invalid option. Please try again.")
