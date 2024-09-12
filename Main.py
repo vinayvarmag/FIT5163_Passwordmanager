@@ -5,8 +5,14 @@ import Storage
 
 def main():
     print("Welcome to the Password Manager")
+    Storage.initialize_db()
+    #master_password = 'hello123'
 
-    master_password = input("Enter your master password: ")
+    master_password = Storage.verify_master_password_on_login()
+
+    if master_password is None:
+        return
+
 
     while True:
         print("\nOptions:")
@@ -42,8 +48,6 @@ def main():
         elif choice == "4":
             print("Exiting...")
             break
-        elif choice == "5":
-            Encrypt_Decrypt.test_encryption_decryption()
 
         else:
             print("Invalid option. Please try again.")

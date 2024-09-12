@@ -46,19 +46,11 @@ def decrypt_password(ciphertext, master_password, salt):
 
     return plaintext.decode()
 
-def test_encryption_decryption():
-    master_password = "my_master_password"
-    plaintext_password = "my_secret_password"
-    salt = get_random_bytes(16).hex()
 
-    encrypted_password = encrypt_password(plaintext_password, master_password, salt)
-    print(f"Encrypted: {encrypted_password}")
-
-    decrypted_password = decrypt_password(encrypted_password, master_password, bytes.fromhex(salt))
-    print(f"Decrypted: {decrypted_password}")
-
-    if plaintext_password == decrypted_password:
-        "Decryption failed!"
-    else:
-        print("Encryption and Decryption successful!")
+def hash_master_password(password):
+    # Generate a random salt
+    salt = get_random_bytes(BLOCK_SIZE)
+    # Derive a hash from the master password
+    password_hash = PBKDF2(password, salt, dkLen=KEY_LENGTH).hex()
+    return password_hash, salt.hex()
 
