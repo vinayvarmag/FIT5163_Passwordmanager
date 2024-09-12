@@ -1,5 +1,5 @@
 # Encryption and decryption 
- * Add working encrypt and decrypt functions.
+ * Add working encrypt and decrypt functions. (done)
  * Add authenticator support.
 # account lists
  * Make the accounts as a selectable list.
