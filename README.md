@@ -1,9 +1,9 @@
 # Encryption and decryption 
  * Add working encrypt and decrypt functions. (done)
- * Add authenticator support.
+ * Add authenticator support. (done)
 # account lists
- * Make the accounts as a selectable list.
+ * Make the accounts as a selectable list. (done)
 # user account
- * Add multiple accounts function.
- * Add a password change function.
+ * 
+ * Add a password change function.(done)
 # 
