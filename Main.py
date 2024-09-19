@@ -56,7 +56,7 @@ def main():
             master_password = Storage.change_master_password(old_master_password)
 
         elif choice == "5":
-            print("Exiting..")
+            print("Exiting...")
             break
 
         else:
