@@ -2,7 +2,7 @@ from Crypto.Cipher import AES
 from Crypto.Protocol.KDF import PBKDF2
 from Crypto.Random import get_random_bytes
 import base64
-import os
+import re
 
 # Constants
 BLOCK_SIZE = 16  # AES block size
@@ -22,35 +22,25 @@ def generate_key(master_password, salt):
 
 def encrypt_password(plaintext, master_password, salt):
     key = generate_key(master_password, salt)
-    #print(key)
     iv = get_random_bytes(BLOCK_SIZE)
-    print(f"iv: {iv}")
-    print(f"salt: {salt}")
-    print(plaintext)
     cipher = AES.new(key, AES.MODE_CBC, iv)
     ciphertext = cipher.encrypt(pad(plaintext.encode()))
-    print(ciphertext)
     return base64.b64encode(iv + ciphertext).decode()
 
 def decrypt_password(ciphertext, master_password, salt):
     key = generate_key(master_password, salt)
-    #key = input("Enter your key: ")
-    #print(key)
     raw_data = base64.b64decode(ciphertext)
     iv = raw_data[:BLOCK_SIZE]
     cipher = AES.new(key, AES.MODE_CBC, iv)
-    print(f"iv: {iv}")
-    print(f"salt: {salt}")
-    print(f"ciphertext: {ciphertext}")
     plaintext = unpad(cipher.decrypt(raw_data[BLOCK_SIZE:]))
 
     return plaintext.decode()
 
 
-def hash_master_password(password):
-    # Generate a random salt
-    salt = get_random_bytes(BLOCK_SIZE)
-    # Derive a hash from the master password
-    password_hash = PBKDF2(password, salt, dkLen=KEY_LENGTH).hex()
-    return password_hash, salt.hex()
+def password_regex(password):
+    password_pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+    if re.match(password_pattern, password):
+        return True
+    else:
+        return False
 

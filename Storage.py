@@ -32,6 +32,19 @@ def initialize_db():
         ''')
     conn.commit()
     conn.close()
+def change_password(id, changed_password, master_password):
+    salt = get_random_bytes(BLOCK_SIZE)
+    conn = sqlite3.connect(Database)
+    cursor = conn.cursor()
+    encrypted_password = Encrypt_Decrypt.encrypt_password(changed_password, master_password, salt)
+    cursor.execute("""
+           UPDATE passwords 
+           SET password = ?, salt = ?
+           WHERE id = ?
+       """, (encrypted_password, salt, id))
+    conn.commit()
+    conn.close()
+    print("Password changed successfully")
 
 def store_password(service, username, password, master_password):
     salt = get_random_bytes(BLOCK_SIZE).hex()  # Generate a random salt
@@ -49,11 +62,18 @@ def store_password(service, username, password, master_password):
     conn.close()
     print("Password stored successfully!")
 
+def delete_service(id):
+    conn = sqlite3.connect(Database)
+    cursor = conn.cursor()
+    cursor.execute(''' DELETE FROM passwords WHERE id = ?''', id)
+    conn.commit()
+    conn.close()
+
 def display_services():
     conn = sqlite3.connect(Database)
     cursor = conn.cursor()
 
-    cursor.execute(''' SELECT id, service FROM passwords''', )
+    cursor.execute(''' SELECT id, service FROM passwords''' )
     rows = cursor.fetchall()
     conn.close()
     return rows
@@ -69,12 +89,9 @@ def retrieve_password(id, master_password):
     conn.close()
 
     if row is None:
-        raise ValueError("Service not found!")
+        return None, None
 
     username, encrypted_password, salt = row
-    print(username)
-    print(encrypted_password)
-    print(salt)
     decrypted_password = Encrypt_Decrypt.decrypt_password(encrypted_password, master_password, salt)
     return username, decrypted_password
 
@@ -130,9 +147,6 @@ def verify_master_password_on_login():
     try:
         decrypted_password = Encrypt_Decrypt.decrypt_password(encrypted_password, master_password, salt)
         encrypted_password = Encrypt_Decrypt.encrypt_password(master_password, master_password, salt)
-        print("Decrypted password: ",decrypted_password)
-        print(encrypted_password)
-        print(master_password)
     except Exception as e:
         print("Decryption failed:", e)
         return None
@@ -167,8 +181,6 @@ def change_master_password(old_master_password):
         return
 
     encrypted_master_password, salt = row
-    print(encrypted_master_password)
-    print(salt)
 
     # Verify the old master password
     try:
@@ -202,7 +214,6 @@ def change_master_password(old_master_password):
 
         # Encrypt the password with the new master password
         new_salt = get_random_bytes(BLOCK_SIZE).hex()
-        print(new_salt)
         new_encrypted_password = Encrypt_Decrypt.encrypt_password(decrypted_password, new_master_password, new_salt)
 
         # Update the password in the database

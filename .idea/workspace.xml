@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abd5d8f2-3baa-4b2d-b566-e04c4fbdcc3c" name="Changes" comment="updated and committed">
+    <list default="true" id="abd5d8f2-3baa-4b2d-b566-e04c4fbdcc3c" name="Changes" comment="updated readme file">
+      <change beforePath="$PROJECT_DIR$/.idea/Password_manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Password_manager.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Encrypt_Decrypt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Encrypt_Decrypt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Storage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_manager.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/password_manager.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +35,12 @@
     &quot;assignee&quot;: &quot;vinayvarmag&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/vinayvarmag/FIT5163_Passwordmanager.git",
-    "accountId": "f2055522-3c41-4d39-81bc-14e7e0861ed1"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/vinayvarmag/FIT5163_Passwordmanager.git&quot;,
+    &quot;accountId&quot;: &quot;8d7716c7-d9f9-46c0-96db-ca449ea2f66d&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -232,7 +237,6 @@
       <workItem from="1726021278590" duration="10359000" />
       <workItem from="1726284304050" duration="28298000" />
       <workItem from="1726557878811" duration="3763000" />
-      <workItem from="1726659392724" duration="858000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -282,15 +286,7 @@
       <option name="project" value="LOCAL" />
       <updated>1726110972471</updated>
     </task>
-    <task id="LOCAL-00007" summary="updated and committed">
-      <option name="closed" value="true" />
-      <created>1726659470353</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1726659470353</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,11 +325,10 @@
     <MESSAGE value="Added sql database to store passwords in an encrypted format." />
     <MESSAGE value="added password verification and fixed encryption and decryption problem." />
     <MESSAGE value="updated readme file" />
-    <MESSAGE value="updated and committed" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated and committed" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated readme file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Password_manager$Storage.coverage" NAME="Storage Coverage Results" MODIFIED="1726538921335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Password_manager$Main.coverage" NAME="Main Coverage Results" MODIFIED="1726558330459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Password_manager$Storage.coverage" NAME="Storage Coverage Results" MODIFIED="1726826331984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Password_manager$Main.coverage" NAME="Main Coverage Results" MODIFIED="1726831111701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
